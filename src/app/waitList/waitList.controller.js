@@ -5,15 +5,21 @@
 		.module('app.waitList')
 		.controller('WaitListController', WaitListController);
 	
-	function WaitListController() {
+	WaitListController.$inject = ['$firebaseArray'];
+	
+	function WaitListController($firebaseArray) {
 		var vm = this;
 		
-		vm.parties = [1, 2, 3, 4];
+		var fireParties = new Firebase('https://blistering-heat-7766.firebaseio.com/parties');
+		
+		
+		
+		vm.parties = $firebaseArray(fireParties);
 		
 		vm.addParty = addParty;
 		
 		function addParty() {
-			vm.parties.push('another');
+			vm.parties.$add('another');
 		}
 	}
 })();
