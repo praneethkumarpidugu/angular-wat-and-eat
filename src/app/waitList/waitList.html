@@ -23,7 +23,7 @@
 	<!--Using the firebase database which is binded.-->
 <tr ng-repeat="party in vm.parties">
 	<td>
-		<!--TODO: Checkbox to display part done -->
+		<input ng-model="party.done" ng-change="vm.toggleDone(party)" type="checkbox">
 	</td>
 	<td>
 		<div><strong>{{ party.name }} ({{ party.size }} people)</strong></div>

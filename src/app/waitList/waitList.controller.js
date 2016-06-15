@@ -36,6 +36,13 @@
 			vm.parties.$remove(party);
 		}
 		
+		//function to mark as done
+		function toggleDone(party) {
+			vm.parties.$save(party);
+			console.log('in toggleDone');
+		}
+		
+		//function to sendtext message
 		function sendTextMessage(party) {
 			var newTextMessage = {
 				phoneNumber: party.phone,
