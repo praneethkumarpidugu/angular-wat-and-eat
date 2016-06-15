@@ -11,6 +11,7 @@
 		var vm = this;
 		
 		var fireParties = new Firebase('https://blistering-heat-7766.firebaseio.com/parties');
+		var fireTextMessages = new Firebase('https://blistering-heat-7766.firebaseio.com/textMessages')
 		
 		function Party() {
 			this.name = '';
@@ -23,6 +24,7 @@
 		vm.parties = $firebaseArray(fireParties);	
 		vm.addParty = addParty;
 		vm.removeParty = removeParty;
+		vm.sendTextMessage = sendTextMessage;
 		
 		//function to add party
 		function addParty() {
@@ -32,6 +34,21 @@
 		
 		function removeParty(party) {
 			vm.parties.$remove(party);
+		}
+		
+		function sendTextMessage(party) {
+			var newTextMessage = {
+				phoneNumber: party.phone,
+				size: party.size,
+				name: party.name
+			};
+			//send the above newTextMessage with fireTextMessages
+			fireTextMessages.push(newTextMessage);
+			//we will notify the other side.
+			party.notified = true;
+			
+			//save the database  i,e vm.parties with $save directive.
+			vm.parties.$save(party)
 		}
 		
 		
