@@ -20,13 +20,20 @@
 			this.notified = false;
 		}
 		vm.newParty = new Party();
-		vm.parties = $firebaseArray(fireParties);
-		
+		vm.parties = $firebaseArray(fireParties);	
 		vm.addParty = addParty;
+		vm.removeParty = removeParty;
 		
+		//function to add party
 		function addParty() {
 			vm.parties.$add(vm.newParty);
 			vm.newParty = new Party();
 		}
+		
+		function removeParty(party) {
+			vm.parties.$remove(party);
+		}
+		
+		
 	}
 })();
