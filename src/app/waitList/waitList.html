@@ -11,12 +11,31 @@
 	<button type="submit" class="btn btn-primary">Add party</button>
 </form>
 
-<!-- Just like for loop ng-repeat is using each item in collection-->
-<div ng-repeat="party in vm.parties">
-	Name : {{ party.name }}
-	<br>
-	Phone: {{ party.phone }} 
-	<br>
-	Size: {{ party.size }}
-	<br>
-</div>
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Done?</th>
+			<th>Info</th>
+			<th>Notified</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<!--Using the firebase database which is binded.-->
+<tr ng-repeat="party in vm.parties">
+	<td>
+		<!--TODO: Checkbox to display part done -->
+	</td>
+	<td>
+		<div><strong>{{ party.name }} ({{ party.size }} people)</strong></div>
+		<div>{{ party.phone }}</div>
+	</td>
+	<td>
+		<div>{{ party.notified ? 'Yes' : 'No' }}</div>
+	</td>
+	<td>
+		<!--TODO: Button that sends a text message to this party -->
+		<!--TODO: Button that removes this party -->
+	</td>
+</tr>
+</table>
+	
