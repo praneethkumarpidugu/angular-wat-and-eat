@@ -7,11 +7,11 @@
 	
 	
 	//adding location in firebase
-	AuthController.$inject = ['$location', '$firebaseAuth'];
+	AuthController.$inject = ['$location', '$firebaseAuth', 'FIREBASE_URL'];
 	
 	function AuthController($location, $firebaseAuth) {
 		var vm = this;
-		var firebaseReference = new Firebase('https://blistering-heat-7766.firebaseio.com/');
+		var firebaseReference = new Firebase(FIREBASE_URL);
 		var firebaseAuthObject = $firebaseAuth(firebaseReference);
 		
 		vm.user = {
