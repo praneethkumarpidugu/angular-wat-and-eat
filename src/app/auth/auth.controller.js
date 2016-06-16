@@ -11,8 +11,7 @@
 	
 	function AuthController($location, authService) {
 		var vm = this;
-		var firebaseReference = new Firebase(FIREBASE_URL);
-		var firebaseAuthObject = $firebaseAuth(firebaseReference);
+		
 		
 		vm.user = {
 			email: '',
