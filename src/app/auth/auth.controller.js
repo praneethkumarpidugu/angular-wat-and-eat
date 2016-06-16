@@ -5,9 +5,11 @@
 		.module('app.auth')
 		.controller('AuthController', AuthController);
 	
-	AuthController.$inject = ['$firebaseAuth'];
 	
-	function AuthController($firebaseAuth) {
+	//adding location in firebase
+	AuthController.$inject = ['$location', '$firebaseAuth'];
+	
+	function AuthController($location, $firebaseAuth) {
 		var vm = this;
 		var firebaseReference = new Firebase('https://blistering-heat-7766.firebaseio.com/');
 		var firebaseAuthObject = $firebaseAuth(firebaseReference);
@@ -19,7 +21,7 @@
 		
 		vm.register = register;
 		vm.login = login;
-		
+		vm.logout = logout;
 		function register(user) {
 			return firebaseAuthObject.$createUser(user)
 				.then(function() {
@@ -35,10 +37,17 @@
 			return firebaseAuthObject.$authWithPassword(user)
 				.then(function(loggedInUser){
 					console.log(loggedInUser);
+					$location.path('/waitlist');
 			})
 				.catch(function(error) {
 					console.log(error);
 			});
+		}
+		
+		//controller function for logout
+		function logout() {
+			firebaseAuthObject.$unauth();
+			$location.path('/')
 		}
 	}
 	
