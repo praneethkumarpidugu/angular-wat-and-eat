@@ -22,8 +22,8 @@
 		
 		function register(user) {
 			return firebaseAuthObject.$createUser(user)
-				.then(function(user) {
-					console.log(user);
+				.then(function() {
+					return vm.login(user);
 				})
 				.catch(function(error){
 					console.log(error);
@@ -32,7 +32,13 @@
 		
 		//controller function for login
 		function login(user) {
-			return firebaseAuthObject.$authWithPassword(user);
+			return firebaseAuthObject.$authWithPassword(user)
+				.then(function(loggedInUser){
+					console.log(loggedInUser);
+			})
+				.catch(function(error) {
+					console.log(error);
+			});
 		}
 	}
 	
