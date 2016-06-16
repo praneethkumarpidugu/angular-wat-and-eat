@@ -2,7 +2,7 @@
 	'use strict';
 	angular
 		.module('app.landing')
-		.config(configFunction)
+		.config(configFunction);
 	
 	configFunction.$inject = ['$routeProvider'];
 	

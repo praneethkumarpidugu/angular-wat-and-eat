@@ -29,7 +29,7 @@
 			return firebaseAuthObject.$authWithPassword(user);
 		}
 		
-		function logout(user) {
+		function logout() {
 			return firebaseAuthObject.$unauth();
 		}
 		

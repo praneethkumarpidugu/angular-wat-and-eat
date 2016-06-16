@@ -13,7 +13,7 @@
 		//var fireParties = new Firebase(FIREBASE_URL + 'parties');
 		//var fireTextMessages = new Firebase(FIREBASE_URL + 'textMessages')
 		
-		console.log(user);
+		
 		
 		
 		vm.newParty = new partyService.Party();
@@ -36,7 +36,6 @@
 		//function to mark as done
 		function toggleDone(party) {
 			vm.parties.$save(party);
-			console.log('in toggleDone');
 		}
 		
 		//function to sendtext message

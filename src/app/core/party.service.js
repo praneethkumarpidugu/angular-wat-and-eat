@@ -5,7 +5,7 @@
 		.module('app.core')
 		.factory('partyService', partyService);
 	
-	partyService.$inject = ['$firebaseArray', 'firebaseDataService']
+	partyService.$inject = ['$firebaseArray', 'firebaseDataService'];
 	
 	function partyService($firebaseArray, firebaseDataService) {
 		var service = {

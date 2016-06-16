@@ -7,7 +7,7 @@
 	
 	textMessageService.$inject = ['firebaseDataService'];
 	
-	function textMessageService() {
+	function textMessageService(firebaseDataService) {
 		var service = {
 			sendTextMessage: sendTextMessage
 		};
@@ -16,7 +16,7 @@
 	}
 	
 	//function to sendtext message
-	function sendTextMessage(party) {
+	function sendTextMessage(party, parties) {
 		var newTextMessage = {
 			phoneNumber: party.phone,
 			size: party.size,
@@ -28,7 +28,7 @@
 		party.notified = true;
 
 		//save the database  i,e vm.parties with $save directive.
-		vm.parties.$save(party)
+		parties.$save(party)
 	}
 	
 })();
