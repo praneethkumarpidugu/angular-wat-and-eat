@@ -34,7 +34,7 @@
 		
 		//controller function for login
 		function login(user) {
-			return firebaseAuthObject.$authWithPassword(user)
+			return authService.login(user)
 				.then(function(loggedInUser){
 					console.log(loggedInUser);
 					$location.path('/waitlist');
