@@ -10,8 +10,14 @@
 		$routeProvider.when('/waitlist', {
 			templateUrl: 'app/waitList/waitList.html',
 			controller: 'WaitListController',
-			controllerAs: 'vm'
+			controllerAs: 'vm',
+			resolve: {user: resolveUser}
 		});
-		
+	}
+	
+	resolveUser.$inject = ['authService'];
+	
+	function resolveUser(authService) {
+		return authService.firebaseAuthObject.$requireAuth();
 	}
 })();

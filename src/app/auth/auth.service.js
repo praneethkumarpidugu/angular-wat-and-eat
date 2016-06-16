@@ -12,9 +12,11 @@
 		var firebaseAuthObject = $firebaseAuth(firebaseDataService.root);
 		
 		var service = {
+			firebaseAuthObject: firebaseAuthObject,
 			register: register,
 			login: login,
-			logout: logout
+			logout: logout,
+			isLoggedIn: isLoggedIn
 		};
 		
 		return service;
@@ -29,6 +31,10 @@
 		
 		function logout(user) {
 			return firebaseAuthObject.$unauth();
+		}
+		
+		function isLoggedIn() {
+			return firebaseAuthObject.$getAuth();
 		}
 	}
 	
