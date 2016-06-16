@@ -13,7 +13,8 @@
 		
 		var service = {
 			register: register,
-			login: login
+			login: login,
+			logout: logout
 		};
 		
 		return service;
@@ -24,6 +25,10 @@
 		
 		function login(user) {
 			return firebaseAuthObject.$authWithPassword(user);
+		}
+		
+		function logout(user) {
+			return firebaseAuthObject.$unauth();
 		}
 	}
 	
