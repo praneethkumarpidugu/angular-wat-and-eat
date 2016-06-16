@@ -5,9 +5,9 @@
 		.module('app.waitList')
 		.controller('WaitListController', WaitListController);
 	
-	WaitListController.$inject = ['FIREBASE_URL', 'partyService'];
+	WaitListController.$inject = ['firebaseDataService', 'partyService'];
 	
-	function WaitListController(FIREBASE_URL, partyService) {
+	function WaitListController(firebaseDataService, partyService) {
 		var vm = this;
 		
 		var fireParties = new Firebase(FIREBASE_URL + 'parties');
@@ -43,8 +43,8 @@
 				size: party.size,
 				name: party.name
 			};
-			//send the above newTextMessage with fireTextMessages
-			fireTextMessages.push(newTextMessage);
+			//send the above newTextMessage with firebaseDataService
+			firebaseDataService.textMessages.push(newTextMessage);
 			//we will notify the other side.
 			party.notified = true;
 			
