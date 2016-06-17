@@ -11,7 +11,10 @@
 			restrict: 'E',
 			controller: PartyFormController,
 			controllerAs: 'vm',
-			scope: {}
+			bindToController: true,
+			scope: {
+				parties: '='
+			}
 		};
 	}
 	
@@ -23,6 +26,7 @@
 		vm.addParty = addParty;
 		
 		function addParty() {
+			vm.parties.$add(vm.newParty);
 			vm.newParty = new partyService.Party();
 		}
 	}
