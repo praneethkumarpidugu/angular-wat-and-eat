@@ -14,5 +14,13 @@
 					'app.landing',
 					'app.layout',
 					'app.waitList'
-		]);
+		])
+		.config(configFunction);
+	configFunction.$inject = ['$routeProvider'];
+	
+	function configFunction($routeProvider) {
+		$routeProvider.otherwise({
+			redirectTo: '/'
+		});
+	}
 })();
