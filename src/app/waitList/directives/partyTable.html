@@ -1,0 +1,30 @@
+<!--TODO
+1.)Create a table with cols: Done?, Info, Notified, Actions
+2.)Button to send text Message and a button to removeParty.
+-->
+<table class="table table-stripped table-bordered">
+	<!--Columns of the table-->
+	<thead>
+		<th>Done?</th>
+		<th>Info</th>
+		<th>Notified</th>
+		<th>Actions</th>
+	</thead>
+	<!--Each columns fields-->
+	<tr ng-repeat="party in vm.parties">
+		<td>
+			<input ng-model="party.done" ng-change="vm.toggleDone(party)" type="checkbox">
+		</td>
+		<td>
+			<div><strong>{{ party.name }} ({{ party.size }} people)</strong></div>
+			<div>{{ party.phone }}</div>
+		</td>
+		<td>
+			<div>{{ party.notified ? 'Yes' : 'No' }}</div>
+		</td>
+		<td>
+			<button ng-click="vm.sendTextMessage(party)" class="btn btn-success">Send SMS</button>
+			<button ng-click="vm.removeParty(party)" class="btn btn-danger">Remove</button>
+		</td>
+	</tr>
+</table>
