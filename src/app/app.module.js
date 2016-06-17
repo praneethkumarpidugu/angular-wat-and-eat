@@ -15,7 +15,7 @@
 					'app.layout',
 					'app.waitList'
 		])
-		.config(configFunction);
+		.config(configFunction)
 		.run(runFunction);
 	
 	configFunction.$inject = ['$routeProvider'];
