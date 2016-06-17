@@ -4,10 +4,13 @@
 	angular
 		.module('app.layout')
 		.directive('gzNavbar', gzNavbar);
+	
 	function gzNavbar() {
 		return {
 			templateUrl:'app/layout/navbar.html',
 			restrict: 'E',
+			//isolate scope
+			scope: {},
 			controller: NavbarController,
 			controllerAs: 'vm'
 		};
