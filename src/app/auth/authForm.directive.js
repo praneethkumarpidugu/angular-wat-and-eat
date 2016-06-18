@@ -13,7 +13,8 @@
 			controllerAs: 'vm',
 			bindToController: true,
 			scope: {
-				error: '='
+				error: '=',
+				formTitle: '@'
 			}
 		};
 	}
