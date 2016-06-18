@@ -39,7 +39,6 @@
 		function login(user) {
 			return authService.login(user)
 				.then(function() {
-					console.log(loggedInUser);
 					$location.path('/waitlist');
 			})
 				.catch(function(error) {
