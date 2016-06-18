@@ -13,7 +13,7 @@
 		};
 		
 		return service
-	}
+	
 	
 	//function to sendtext message
 	function sendTextMessage(party, parties) {
@@ -28,7 +28,8 @@
 		party.notified = true;
 
 		//save the database  i,e vm.parties with $save directive.
-		parties.$save(party)
+		parties.$save(party);
 	}
+}
 	
 })();

@@ -8,6 +8,7 @@
 	partyService.$inject = ['$firebaseArray', 'firebaseDataService'];
 	
 	function partyService($firebaseArray, firebaseDataService) {
+		var parties = null;
 		var service = {
 			Party: Party,
 			getPartiesByUser: getPartiesByUser,

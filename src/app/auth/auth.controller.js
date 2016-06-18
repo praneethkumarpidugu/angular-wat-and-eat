@@ -11,10 +11,6 @@
 	
 	function AuthController($location, authService) {
 		var vm = this;
-		
-		
-		
-		
 		vm.error = null;
 		vm.register = register;
 		vm.login = login;
@@ -27,7 +23,7 @@
 				.then(function() {
 					return authService.sendWelcomeEmail(user.email);
 				})
-				.catch(function(error){
+				.catch(function(error) {
 					vm.error = error;
 				});
 		}

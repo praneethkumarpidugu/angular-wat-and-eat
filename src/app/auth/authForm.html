@@ -7,10 +7,11 @@
 	
 	<!-- Email input -->
 	
-	<input ng-model="vm.user.email" ng-model-options="{ updateOn: 'default blur', debounce: {default: 1000, blur: 0} }" name="email" type="email" class="form-control" placeholder="Email Address" required autofocus>
+	<input ng-model="vm.user.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 1000, blur: 0 } }" name="email" type="email" class="form-control" placeholder="Email Address" required autofocus>
 	
 	<!-- Email Error -->
 	<div ng-show="authForm.$submitted">
+		<p ng-show="authForm.email.$error.required" class="text-danger">Email required</p>
 		<p ng-show="authForm.email.$error.email" class="text-danger">Please enter a valid email.</p>
 	</div>
 	
@@ -22,5 +23,5 @@
 		<p ng-show="authForm.password.$error.required" class="text-danger">Password required</p>
 	</div>
 	
-	<button class="btn btn-lg btn-primary btn-block" ng-bind="vm.formTitle" type="submit">Sign up</button>
+	<button class="btn btn-lg btn-primary btn-block" ng-bind="vm.formTitle" type="submit"></button>
 </form>
