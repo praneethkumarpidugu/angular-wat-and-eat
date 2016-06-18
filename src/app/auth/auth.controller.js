@@ -18,6 +18,7 @@
 			password: ''
 		};
 		
+		vm.error = null;
 		vm.register = register;
 		vm.login = login;
 		
@@ -30,19 +31,19 @@
 					return authService.sendWelcomeEmail(user.email);
 				})
 				.catch(function(error){
-					console.log(error);
+					vm.error = error;
 				});
 		}
 		
 		//controller function for login
 		function login(user) {
 			return authService.login(user)
-				.then(function(loggedInUser){
+				.then(function() {
 					console.log(loggedInUser);
 					$location.path('/waitlist');
 			})
 				.catch(function(error) {
-					console.log(error);
+					vm.error = error;
 			});
 		}
 		
