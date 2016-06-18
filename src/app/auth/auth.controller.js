@@ -13,10 +13,7 @@
 		var vm = this;
 		
 		
-		vm.user = {
-			email: '',
-			password: ''
-		};
+		
 		
 		vm.error = null;
 		vm.register = register;
