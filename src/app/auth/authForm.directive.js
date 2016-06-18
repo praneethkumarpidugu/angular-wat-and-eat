@@ -12,7 +12,9 @@
 			controller: AuthFormController,
 			controllerAs: 'vm',
 			bindToController: true,
-			scope: {}
+			scope: {
+				error: '='
+			}
 		};
 	}
 	
