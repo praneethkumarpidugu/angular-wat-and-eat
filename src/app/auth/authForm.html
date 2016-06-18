@@ -1,4 +1,4 @@
-<form name="authForm" ng-submit="authForm.$valid" class="form-signin" novalidate>
+<form name="authForm" ng-submit="authForm.$valid && vm.submitAction({user: vm.user})" class="form-signin" novalidate>
 	
 	<h2 class="form-signin-heading" ng-bind="vm.formTitle"></h2>
 	
