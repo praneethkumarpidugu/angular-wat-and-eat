@@ -1,6 +1,6 @@
 <form name="authForm" ng-submit="authForm.$valid" class="form-signin" novalidate>
 	
-	<h2 class="form-signin-heading"></h2>
+	<h2 class="form-signin-heading" ng-bind="vm.formTitle"></h2>
 	
 	<!-- Server authentication error -->
 	<p ng-show="vm.error" class="text-danger" ng-bind="vm.error"></p>
@@ -22,5 +22,5 @@
 		<p ng-show="authForm.password.$error.required" class="text-danger">Password required</p>
 	</div>
 	
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+	<button class="btn btn-lg btn-primary btn-block" ng-bind="vm.formTitle" type="submit">Sign up</button>
 </form>
